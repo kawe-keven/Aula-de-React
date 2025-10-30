@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    sans-serif;
+  background: #e0e5ec;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App {
+  width: 100%;
+  padding: 20px;
+}
+
+/* Container principal com neomorfismo */
+.nova-propriedade-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  color: #6d7587;
+  font-size: 28px;
+  font-weight: 700;
+  text-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
+  letter-spacing: 1px;
+}
+
+/* Container do formulário - neomorfismo convexo */
+.nova-propriedade-table {
+  background: #e0e5ec;
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form-section {
+  margin-bottom: 30px;
+}
+
+.section-header {
+  margin-bottom: 15px;
+  padding-left: 5px;
+}
+
+.section-title {
+  font-weight: 600;
+  color: #6d7587;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px #fff;
+}
+
+.input-group {
+  margin-bottom: 12px;
+}
+
+/* Inputs - neomorfismo côncavo */
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 15px;
+  font-size: 15px;
+  color: #6d7587;
+  background: #e0e5ec;
+  box-shadow: inset 5px 5px 10px #b8b9be, inset -5px -5px 10px #ffffff;
+  transition: all 0.3s ease;
+}
+
+.form-input::placeholder {
+  color: #a3b1c6;
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  box-shadow: inset 3px 3px 6px #b8b9be, inset -3px -3px 6px #ffffff,
+    0 0 0 2px rgba(120, 130, 255, 0.2);
+  color: #6d7587;
+}
+
+/* Select customizado */
+.form-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236d7587' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  background-size: 12px;
+}
+
+/* Divisor neomórfico */
+.divider {
+  height: 2px;
+  background: #e0e5ec;
+  margin: 35px 0;
+  box-shadow: 0 2px 4px #b8b9be, 0 -2px 4px #ffffff;
+  border-radius: 2px;
+}
+
+/* Botões - neomorfismo convexo com hover ativo */
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.cancel-btn,
+.confirm-btn {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  min-width: 130px;
+  color: #6d7587;
+  background: #e0e5ec;
+  box-shadow: 8px 8px 16px #b8b9be, -8px -8px 16px #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito de pressão nos botões */
+.cancel-btn:active,
+.confirm-btn:active {
+  box-shadow: inset 5px 5px 10px #b8b9be, inset -5px -5px 10px #ffffff;
+  transform: scale(0.98);
+}
+
+/* Cores específicas para cada botão */
+.cancel-btn {
+  color: #ff6b6b;
+  text-shadow: 1px 1px 2px rgba(255, 107, 107, 0.2);
+}
+
+.confirm-btn {
+  color: #51cf66;
+  text-shadow: 1px 1px 2px rgba(81, 207, 102, 0.2);
+}
+
+/* Efeito hover suave */
+.cancel-btn:hover,
+.confirm-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 12px 12px 24px #b8b9be, -12px -12px 24px #ffffff;
+}
+
+/* Efeito de brilho interno nos botões */
+.cancel-btn::before,
+.confirm-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cancel-btn:hover::before,
+.confirm-btn:hover::before {
+  opacity: 1;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .App {
+    padding: 15px;
+  }
+
+  .nova-propriedade-table {
+    padding: 30px 20px;
+    border-radius: 15px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .cancel-btn,
+  .confirm-btn {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .header h1 {
+    font-size: 24px;
+  }
+}
+
+/* Efeito de profundidade nos inputs quando preenchidos */
+.form-input:not(:placeholder-shown) {
+  box-shadow: inset 3px 3px 6px #b8b9be, inset -3px -3px 6px #ffffff,
+    0 0 0 1px rgba(120, 130, 255, 0.1);
+}
+
+/* Animação sutil para o container */
+.nova-propriedade-table {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
